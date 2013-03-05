@@ -21,7 +21,7 @@ class EntityState {
 		} else {
 			bone.id = id;
 		}
-		while (bones.length < id) {
+		while (bones.length <= id) {
 			bones.push(null);
 		}
 		bones[bone.id] = bone;
