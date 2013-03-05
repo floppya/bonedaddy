@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:b528b2b8cdb3acf841bccf3ceccbeb9c$ -->
+<TextureAtlas imagePath="spriter/zippy_atlas.png">
+    <SubTexture name="zippy/head_d.png" x="2" y="2" width="76" height="97"/>
+    <SubTexture name="zippy/left_arm_d.png" x="80" y="2" width="58" height="152"/>
+    <SubTexture name="zippy/left_foot_d.png" x="140" y="2" width="88" height="40"/>
+    <SubTexture name="zippy/left_hand_d.png" x="230" y="2" width="40" height="68"/>
+    <SubTexture name="zippy/left_lower_leg_d.png" x="272" y="2" width="43" height="172"/>
+    <SubTexture name="zippy/left_upper_leg_d.png" x="317" y="2" width="45" height="184"/>
+    <SubTexture name="zippy/right_arm_d.png" x="364" y="2" width="59" height="194"/>
+    <SubTexture name="zippy/right_foot_d.png" x="2" y="198" width="88" height="42"/>
+    <SubTexture name="zippy/right_hand_d.png" x="92" y="198" width="41" height="68"/>
+    <SubTexture name="zippy/right_lower_leg_d.png" x="135" y="198" width="47" height="173"/>
+    <SubTexture name="zippy/right_upper_leg_d.png" x="184" y="198" width="44" height="188"/>
+    <SubTexture name="zippy/torso_d.png" x="230" y="198" width="210" height="297"/>
+</TextureAtlas>
