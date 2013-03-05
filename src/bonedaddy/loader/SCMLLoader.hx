@@ -70,7 +70,6 @@ class SCMLLoader extends BaseBonedaddyLoader {
 					bone.parent = timelineBoneMap.get(bone.parent);
 				}
 				key.state.addBone(bone, timelineId);
-				var timelineId = Std.parseInt(refNode.att.timeline);
 				timelineBoneMap.set(boneId, timelineId);
 			}
 			for (refNode in keyNode.nodes.object_ref) {

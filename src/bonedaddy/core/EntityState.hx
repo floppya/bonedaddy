@@ -17,7 +17,7 @@ class EntityState {
 	
 	public function addBone(bone:Bone, ?id:Int = -1) {
 		if (id == -1) {
-			bone.id = bones.length;
+			id = bone.id = bones.length;
 		} else {
 			bone.id = id;
 		}

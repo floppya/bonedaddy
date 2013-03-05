@@ -62,6 +62,4 @@ class Animation {
 			state.interpolate(key0.state, key1.state, relativeT);
 		}
 	}
-	var lastKey0:Key;
-	var lastKey1:Key;
 }
