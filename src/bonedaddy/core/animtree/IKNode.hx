@@ -8,14 +8,6 @@ import nme.Vector;
 class IKNode extends AnimNode {
 	public var baseAnimNode:AnimNode;
 	public var targetPosition(get, set):Point;
-	function get_targetPosition() {
-		return _targetPosition;
-	}
-	function set_targetPosition(val:Point) {
-		_targetIsDirty = true;
-		_targetPosition.copyFrom(val);
-		return _targetPosition;
-	}
 	public var tipBoneName:String;
 	public var depth:Int;
 	var entityState:EntityState;
@@ -72,6 +64,16 @@ class IKNode extends AnimNode {
 		for (bone in bones) {			
 			entityState.bones[bone.id].copy(bone);
 		}
+	}
+	
+	function get_targetPosition() {
+		return _targetPosition;
+	}
+
+	function set_targetPosition(val:Point) {
+		_targetIsDirty = true;
+		_targetPosition.copyFrom(val);
+		return _targetPosition;
 	}
 	
 	function solveIk() {
