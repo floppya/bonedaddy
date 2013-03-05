@@ -3,6 +3,7 @@ package ;
 import bonedaddy.core.animtree.AnimationNode;
 import bonedaddy.core.animtree.AnimTree;
 import bonedaddy.core.animtree.BlendNode;
+import bonedaddy.core.animtree.IKNode;
 import bonedaddy.loader.SCMLLoader;
 import bonedaddy.renderer.nme.AnimTreeSprite;
 import bonedaddy.renderer.nme.EntityStateSprite;
@@ -14,7 +15,9 @@ import nme.display.FPS;
 import nme.display.Sprite;
 import nme.events.Event;
 import nme.events.KeyboardEvent;
+import nme.events.MouseEvent;
 import nme.events.TimerEvent;
+import nme.geom.Point;
 import nme.Lib;
 import nme.utils.Timer;
 
@@ -24,6 +27,7 @@ class Main extends Sprite
 	var esSprite:EntityStateSprite;
 	var animTreeSprite:AnimTreeSprite;
 	var blendNode:BlendNode;
+	var ikNode:IKNode;
 	var timer:Timer;
 	var _goLeft:Bool;
 	var _goRight:Bool;
@@ -53,9 +57,12 @@ class Main extends Sprite
 		var animTree = new AnimTree();
 		blendNode = new BlendNode(new AnimationNode('idle'), new AnimationNode('walk'));
 		blendNode.weight0 = 0.5;
-		animTree.rootAnimNode = blendNode;
+		//ikNode = new IKNode(blendNode, 'right_lower_leg', 1, true);
+		ikNode = new IKNode(blendNode, 'right_hand', 1);
+		animTree.rootAnimNode = ikNode;
 		animTreeSprite = nmeFactory.getAnimTreeSprite('zippy', animTree, tilesheetAtlas);
 		animTreeSprite.x = 200;
+		//animTreeSprite.y = 600;
 		animTreeSprite.y = 400;
 		animTreeSprite.scaleX = animTreeSprite.scaleY = 0.6;
 		animTreeSprite.updateBitmap();
@@ -73,6 +80,7 @@ class Main extends Sprite
 		
 		Lib.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 		Lib.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
+		Lib.stage.addEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
 		
 		timer = new Timer(20);
 		timer.addEventListener(TimerEvent.TIMER, onTick);
@@ -113,6 +121,12 @@ class Main extends Sprite
 			case 39:
 				_goRight = false;
 		}
+	}
+	
+	function onMouseMove(event:MouseEvent):Void {
+		var pos = new Point(event.stageX, event.stageY);
+		pos = animTreeSprite.globalToLocal(pos);
+		ikNode.targetPosition = pos;
 	}
 
 	/* SETUP */
